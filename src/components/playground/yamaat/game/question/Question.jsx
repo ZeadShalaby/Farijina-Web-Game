@@ -82,7 +82,7 @@ function Question() {
         </NameCat>
         
         <Clue>
-          {currentQuestion.direction?.notes || currentQuestion.notes || ''}''
+          {currentQuestion.direction?.notes || currentQuestion.notes || ''}
         </Clue>
 
         <Issue />
