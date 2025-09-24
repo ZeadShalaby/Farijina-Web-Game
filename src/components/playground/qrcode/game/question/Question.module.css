@@ -159,7 +159,7 @@
   content: "";
   width: 100%;
   height: 100%;
-  background: linear-gradient(180deg, #4ea9b4, var(--color-pri));
+  /* background: linear-gradient(180deg, #4ea9b4, var(--color-pri)); */
   filter: blur(25px);
 
   z-index: -1;
@@ -210,183 +210,6 @@
   justify-content: center;
 }
 
-/* 📱 Mobile & Tablet */
-@media (max-width: 950px) {
-  .questionContainer {
-    padding: 25px 4vw 50px;
-    border-radius: 30px;
-    gap: 30px;
-  }
-
-  .questText {
-    font-size: 18px;
-    line-height: 30px;
-  }
-
-  .questPoints {
-    padding: 0 10px;
-    top: -20px;
-  }
-
-  .questAnswer {
-    width: 80px;
-    height: 50px;
-    bottom: -25px;
-    right: 20px;
-    font-size: 20px;
-  }
-
-  .main.vertebraeMode .questAnswer {
-    width: 120px;
-  }
-
-  .rulesList {
-    font-size: 16px;
-    gap: 8px;
-  }
-
-  .qrCircle {
-    width: 90px;
-    height: 90px;
-  }
-
-  .qrCircle img {
-    width: 70px;
-    height: 70px;
-  }
-
-  .qrLabel {
-    font-size: 14px;
-    padding: 4px 12px;
-  }
-}
-
-@media (max-width: 550px) {
-  .questionContainer {
-    padding: 10px 4vw 25px;
-    border-radius: 20px;
-    gap: 5px;
-  }
-
-  .questText {
-    font-size: 16px;
-    line-height: 26px;
-  }
-
-  .questPoints {
-    height: 30px !important;
-    min-height: 30px !important;
-    top: -15px;
-  }
-
-  .questAnswer {
-    width: 80px;
-    height: 40px;
-    bottom: -20px;
-    right: 20px;
-    font-size: 17px;
-  }
-
-  .main.vertebraeMode .questAnswer {
-    width: 100px;
-    font-size: 12px;
-    font-weight: 700;
-  }
-
-  .rulesContainer {
-    flex-direction: column;
-    align-items: center;
-    text-align: center;
-  }
-
-  .rulesList {
-    font-size: 14px;
-  }
-}
-
-/* 📏 Short Screens */
-@media (max-height: 700px) {
-  .questionContainer {
-    padding: 30px 4vw 25px;
-    border-radius: 20px;
-    gap: 10px;
-  }
-
-  .questText {
-    font-size: 20px;
-    line-height: 35px;
-  }
-
-  .questPoints {
-    height: 40px !important;
-    min-height: 40px !important;
-    top: -20px;
-  }
-
-  .questAnswer {
-    width: 120px;
-    height: 40px;
-    bottom: -20px;
-    right: 20px;
-    font-size: 17px;
-  }
-
-  .main.vertebraeMode .questAnswer {
-    font-size: 14px;
-    font-weight: 700;
-  }
-}
-
-@media (max-height: 700px) and (max-width: 550px) {
-  .questionContainer {
-    padding: 10px 4vw 25px;
-  }
-
-  .questText {
-    font-size: 16px;
-    line-height: 26px;
-  }
-
-  .questPoints {
-    height: 30px !important;
-    min-height: 30px !important;
-    top: -15px;
-  }
-}
-
-@media (max-height: 520px) {
-  .questionContainer {
-    padding: 20px;
-    gap: 10px;
-  }
-
-  .questText {
-    font-size: 16px;
-    line-height: 26px;
-  }
-}
-
-@media (max-width: 1150px) and (max-height: 520px) {
-  .questionContainer {
-    padding: 18px 2.5vw 20px 5vw;
-  }
-
-  .questAnswer {
-    height: 30px;
-    bottom: -15px;
-    right: 20px;
-    font-size: 14px;
-    font-weight: 500;
-    line-height: 26.24px;
-  }
-
-  .questPoints {
-    height: 28px !important;
-    min-height: 28px !important;
-    top: -10px;
-  }
-}
-
 /* ✅ Actions */
 .questActions {
   width: 100%;
@@ -405,16 +228,249 @@
   right: auto;
 }
 
-@media (max-width: 950px) {
+/* ================== Tablet / iPad ================== */
+/* الشاشات المتوسطة بين 551px و 950px (مثل iPad Pro) */
+@media (min-width: 551px) and (max-width: 950px) {
+  .rulesContainer,
+  .questionContainer {
+    margin-top: 40px; /* ينزل شوية */
+    transform: scale(0.9); /* يصغر الكونتنت شوية */
+    transform-origin: top center;
+  }
+
+  .questText {
+    font-size: 20px;
+    line-height: 32px;
+  }
+
+  .questAnswer {
+    width: 100px;
+    height: 50px;
+  }
+
+  .rulesList {
+    font-size: 16px;
+  }
+
+  .qrCircle {
+    width: 120px;
+    height: 120px;
+  }
+
+  .qrCircle img {
+    width: 100px;
+    height: 100px;
+  }
+
+  .qrLabel {
+    font-size: 14px;
+    padding: 4px 12px;
+  }
+  
+  .questPoints,
   .questPointsLeft {
-    left: 20px;
     top: -20px;
+    font-size: 18px;
   }
 }
 
-@media (max-width: 550px) {
+/* ================== Small / Medium Screens ================== */
+/* الشاشات أقل من 950px (Tablets أصغر) */
+@media (max-width: 950px) {
+  .questionContainer {
+    padding: 30px 4vw 50px;
+    gap: 25px;
+    transform: scale(0.85); /* يصغر الكونتنت */
+    transform-origin: top center;
+  }
+
+  .questText {
+    font-size: 18px;
+    line-height: 28px;
+  }
+
+  .questAnswer {
+    width: 90px;
+    height: 50px;
+  }
+
+  .rulesList {
+    font-size: 15px;
+    gap: 8px;
+  }
+
+  .qrCircle {
+    width: 100px;
+    height: 100px;
+  }
+
+  .qrCircle img {
+    width: 80px;
+    height: 80px;
+  }
+
+  .qrLabel {
+    font-size: 14px;
+    padding: 4px 12px;
+  }
+
+  .questPoints,
   .questPointsLeft {
-    left: 15px;
+    top: -18px;
+    font-size: 16px;
+  }
+}
+
+/* ================== Phone / Very Small Screens ================== */
+/* الشاشات أقل من 550px */
+@media (max-width: 550px) {
+  .rulesContainer,
+  .questionContainer {
+    transform: scale(0.85); /* يصغر الكونتنت */
+    transform-origin: top center;
+    margin-top: 10px; /* ينزل الكونتينر شوية */
+  }
+
+  .rulesContainer {
+  width: 100%;
+  height: 100%;
+  max-width: 450px;
+  max-height: 140px;
+}
+
+  .questionContainer {
+    padding: 10px 4vw 25px;
+    gap: 5px;
+  }
+
+  .questText {
+    font-size: 14px;
+    line-height: 130px;
+  }
+
+  .questAnswer {
+    width: 80px;
+    height: 20px;
+    bottom: -20px;
+    right: 20px;
+  }
+
+  .main.vertebraeMode .questAnswer {
+    width: 100px;
+    font-size: 12px;
+    font-weight: 700;
+  }
+
+  .rulesList {
+    font-size: 9px; /* تصغير نصوص القوائم */
+  }
+
+  .rulesList label {
+    font-size: 9px; /* تصغير النص داخل المستطيل */
+    padding: 3px 8px 3px 4px; /* padding-right أكبر عشان يسيب مساحة للرقم */
+
+  }
+
+  .rulesList span {
+    width: 25px;
+    height: 25px;
+    font-size: 8px;
+  }
+
+  .qrCircle {
+    width: 80px;
+    height: 80px;
+  }
+
+  .qrCircle img {
+    width: 60px;
+    height: 60px;
+  }
+
+  .qrLabel {
+    font-size: 10px; /* تصغير النص تحت الدايرة */
+    padding: 2px 8px;
+  }
+
+  .questPoints,
+  .questPointsLeft {
     top: -15px;
+    font-size: 12px;
+  }
+}
+
+/* ================== Short Screens ================== */
+/* ارتفاع أقل من 700px */
+@media (max-height: 700px) {
+  .questionContainer {
+    padding: 25px 4vw 20px;
+    gap: 10px;
+    transform: scale(0.9);
+    transform-origin: top center;
+  }
+
+  .questText {
+    font-size: 18px;
+    line-height: 30px;
+  }
+
+  .questAnswer {
+    width: 100px;
+    height: 40px;
+  }
+
+  .questPoints,
+  .questPointsLeft {
+    top: -18px;
+    font-size: 16px;
+  }
+}
+
+/* ارتفاع أقل من 700px و أقل من 550px عرض */
+@media (max-height: 700px) and (max-width: 550px) {
+  .questionContainer {
+    padding: 10px 4vw 20px;
+  }
+
+  .questText {
+    font-size: 14px;
+    line-height: 22px;
+  }
+
+  .questPoints,
+  .questPointsLeft {
+    top: -15px;
+    font-size: 14px;
+  }
+}
+
+/* ارتفاع أقل من 520px */
+@media (max-height: 520px) {
+  .questionContainer {
+    padding: 15px 4vw 20px;
+    gap: 10px;
+  }
+
+  .questText {
+    font-size: 14px;
+    line-height: 20px;
+  }
+}
+
+/* عرض أقل من 1150px و ارتفاع أقل من 520px */
+@media (max-width: 1150px) and (max-height: 520px) {
+  .questionContainer {
+    padding: 15px 3vw 20px 4vw;
+  }
+
+  .questAnswer {
+    height: 30px;
+    font-size: 14px;
+  }
+
+  .questPoints {
+    height: 28px !important;
+    min-height: 28px !important;
+    top: -10px;
   }
 }
