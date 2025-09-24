@@ -1,0 +1,85 @@
+.main {
+  height: 90%;
+  min-height: 90%;
+  /* aspect-ratio: 137 / 76; */
+
+  position: relative;
+
+  font-family: var(--font-ibm);
+  font-size: clamp(11px, 1.8vw, 1.8vw);
+  font-weight: 700;
+  line-height: 45px;
+  color: var(--color-text4);
+  text-shadow: 0px 3.45px 3.45px #00000040;
+
+  flex: 1 0 30%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.main > * {
+  z-index: 2;
+  position: relative;
+}
+
+.name {
+ font-size: 24px;
+  font-weight: 600;
+  line-height: 1.4; /* خليه نسبي بدل قيمة ثابتة */
+  text-align: center;
+  color: var(--color-text);
+  z-index: 2;
+  position: relative;
+  background-color: var(--color-back-blue);
+
+  width: 150px;
+  height: 40px;
+  border-radius: 46.88px;
+  background-color: var(--color-sec);
+  cursor: pointer;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.main.answered {
+  pointer-events: none;
+}
+
+.main.answered .background {
+  filter: grayscale(100%) saturate(100%);
+}
+
+@media (max-width: 1150px) and (max-height: 520px) {
+  .main {
+    font-size: 14px;
+  }
+}
+/* الموبايل (تصغير في الايفون والأجهزة الصغيرة) */
+@media (max-width: 550px), (max-height: 700px) {
+  .main {
+    font-size: 13px;   /* صغّر الخط */
+    line-height: 1.2;  /* قلل الارتفاع */
+    
+  }
+
+  .name {
+    width: 100px;
+    height: 34px;
+    font-size: 14px;   /* خط أصغر */
+  }
+}
+
+/* شاشات صغيرة جدًا (مثلاً iPhone SE أو أفقي) */
+@media (max-width: 400px), (max-height: 500px) {
+  .main {
+    font-size: 12px;
+  }
+
+  .name {
+    width: 80px;
+    height: 30px;
+    font-size: 13px;
+  }
+}

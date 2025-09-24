@@ -1,0 +1,227 @@
+.main {
+  display: none;
+}
+
+.main.show {
+  display: block;
+}
+
+.main > p:first-of-type {
+  font-weight: 600;
+}
+
+.description {
+  width: 95%;
+  max-width: 882px;
+  margin: 0 auto 60px auto;
+  padding: 24px;
+  border-radius: 30px;
+  background-color: var(--color-back);
+  font-size: 24px;
+  font-weight: 600;
+  line-height: 44.98px;
+  color: var(--color-text-1);
+  text-align: center;
+}
+
+@media (max-width: 700px) {
+  .description {
+    padding: 20px;
+    font-size: 20px;
+    font-weight: 300;
+    line-height: 35px;
+  }
+}
+
+@media (max-width: 1150px) and (max-height: 520px) {
+  .description {
+    margin-bottom: 16px;
+    padding: 24px 11.5px;
+    font-size: 16px;
+    font-weight: 600;
+    line-height: 29.98px;
+  }
+}
+
+/* ====== sideBarsContainer ====== */
+.sideBarsContainer {
+  position: fixed;
+  top: 100px;
+  left: 0;
+  right: 0;
+  display: flex;
+  justify-content: space-between;
+  padding: 0 20px;
+
+  pointer-events: none;
+  /* منع التفاعل بشكل عام عشان الفئات تحت تشتغل */
+
+  opacity: 0;
+  transform: translateY(-20px);
+  transition: opacity 0.4s ease, transform 0.4s ease;
+  z-index: 1000;
+}
+
+.sideBarsContainer.visible {
+  opacity: 1;
+  transform: translateY(0);
+  /* تظل pointer-events: none; عشان الفئات تحت تشتغل */
+}
+
+/* مهم: الشريط نفسه يسمح بالتفاعل فقط لعناصره */
+.sideBar {
+  width: 90px;
+  background-color: hsl(186, 40%, 51%, 0.4);
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  padding: 20px 0;
+  pointer-events: auto;
+  /* تفعيل التفاعل لأزرار الحذف */
+  border-radius: 12px;
+  gap: 35px;
+}
+
+/* تغيير لون الشريط الأيسر */
+.sideBar:first-child {
+  background-color: hsl(45, 47%, 85%, 0.4);
+}
+
+/* زر الحذف */
+.barItem .removeBtn {
+  position: absolute;
+  top: 0;
+  right: -6px; /* للزر في الشريط الأيمن */
+  left: auto;  /* نتأكد إن اليسار مش مفعل */
+  width: 24px;
+  height: 24px;
+  border-radius: 50%;
+  font-size: 15px;
+  font-weight: bold;
+  cursor: pointer;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  box-shadow: 0 2px 6px rgba(0, 0, 0, 0.2);
+  z-index: 2;
+  background: var(--color-back-orange);
+  color: white;
+  line-height: 1; /* عشان النص مايطلعش برا */
+}
+
+/* موقع زر الحذف في كل شريط */
+.sideBar:first-child .barItem .removeBtn {
+  right: auto; /* نعطل اليمين */
+  right: -6px;  /* نخليها على الشمال */
+}
+
+.sideBar:last-child .barItem .removeBtn {
+  right: auto;   /* نعطل اليمين */
+  right: -6px;    /* نخلي الزر على اليسار */
+}
+
+/* زر السحب (Scroll) */
+.scrollButton {
+  width: 36px;
+  height: 36px;
+  border-radius: 50%;
+  background: var(--color-back-orange);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 25px;
+  cursor: pointer;
+  animation: bounce 1.2s infinite;
+  box-shadow: 0 3px 8px rgba(255, 255, 255, 0.2);
+  color: white;
+
+  position: relative;
+  line-height: 0.900;
+  margin: 0;
+  top: auto;
+  transform: none;
+}
+
+.scrollButton:hover {
+  transform: scale(1.1);
+  box-shadow: 0 5px 12px rgba(0, 0, 0, 0.25);
+}
+
+/* عناصر الشريط */
+.barItem {
+  position: relative;
+  width: 70px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  margin-bottom: 20px;
+}
+
+/* إزالة المسافة السفلية من آخر عنصر */
+.sideBar .barItem:last-child {
+  margin-bottom: 0;
+}
+
+/* صورة العنصر */
+.barItem img {
+  width: 70px;
+  height: 70px;
+  object-fit: cover;
+  mask: url("/vectors/body-frame.svg");
+  mask-size: cover;
+  mask-repeat: no-repeat;
+  border-radius: 0;
+  border: none;
+}
+
+/* النص تحت الصورة */
+.barItem span {
+  margin-top: -8px;
+  font-weight: bold;
+  color: var(--color-text-4);
+  text-align: center;
+  background-color: var(--color-back-yellow);
+  mask: url("/vectors/category-card-title-background.png");
+  mask-size: cover;
+  mask-repeat: no-repeat;
+  line-height: 1.3;
+  border-bottom-left-radius: 6px;
+  border-bottom-right-radius: 6px;
+  padding: 3px 8px;
+  display: inline-block;
+  width: 65px;
+  white-space: nowrap;
+  overflow: visible;
+  font-size: 7px;
+}
+
+/* استجابة الشاشات الصغيرة */
+@media (max-width: 480px) {
+  .sideBar {
+    width: 75px;
+    padding: 15px 0;
+    gap: 25px;
+  }
+
+  .barItem {
+    width: 55px;
+    margin-bottom: 15px;
+  }
+
+  .barItem img {
+    width: 55px;
+    height: 55px;
+  }
+
+  .barItem span {
+    font-size: clamp(8px, 2vw, 12px);
+    padding: 2px 5px;
+    margin-top: -6px;
+  }
+
+  .barItem .removeBtn {
+    width: 18px;
+    height: 18px;
+    font-size: 10px;
+  }
+}

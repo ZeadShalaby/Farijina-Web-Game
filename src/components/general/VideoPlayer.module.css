@@ -1,0 +1,79 @@
+.main {
+  position: relative;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background-color: var(--color-sec); /* لون الخلفية شفاف قليلاً */
+  padding: 20px;
+  border-radius: 20px;
+  box-shadow: 0 8px 25px rgba(0, 0, 0, 0.25);
+  max-width: 500px;
+  margin: auto;
+  overflow: hidden;
+}
+
+.video {
+  width: 100%;
+  height: auto;
+  border-radius: 15px;
+  box-shadow: 0 4px 15px rgba(0, 0, 0, 0.2);
+  object-fit: cover;
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+.video:hover {
+  transform: scale(1.03);
+  box-shadow: 0 8px 25px rgba(0, 0, 0, 0.3);
+}
+
+/* Overlay للـ play button */
+.overlay {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  width: 80px;
+  height: 80px;
+  border-radius: 50%;
+  background-color: rgba(0, 0, 0, 0.5);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  cursor: pointer;
+  transition: background-color 0.3s ease, transform 0.3s ease;
+}
+
+.overlay:hover {
+  background-color: rgba(0, 0, 0, 0.7);
+  transform: translate(-50%, -50%) scale(1.1);
+}
+
+.play-icon {
+  width: 0;
+  height: 0;
+  border-left: 20px solid white;
+  border-top: 12px solid transparent;
+  border-bottom: 12px solid transparent;
+}
+
+/* iPad Mini */
+@media (min-width: 700px) and (max-width: 820px) {
+  .main {
+    max-width: 750px; /* أكبر من الـ 600px */
+   max-height: 600px;
+
+  }
+}
+
+
+/* التابلت والآيباد (من 600px لحد 1200px) */
+@media (min-width: 600px) and (max-width: 1200px) {
+  .main {
+    max-width: 750px; /* الحجم اللي عايزه */
+    max-height: 600px; /* ارتفاع مناسب */
+    margin: auto; /* يخلي العنصر في النص أفقيًا */
+    top: 7%; 
+    transform: translateY(7%); /* ينزل في نص الصفحة عموديًا */
+    position: relative; /* أو absolute حسب التصميم */
+  }
+}
