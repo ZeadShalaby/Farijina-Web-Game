@@ -1,0 +1,133 @@
+.main {
+  width: fit-content;
+  min-width: 170px;   /* يضمن وجود مساحة حتى لو مفيش كلام */
+  height: 44px;
+  border-radius: 60px;
+  background: var(--color-sec);
+  box-shadow: 0px 4px 4px 0px #00000040;
+
+  position: absolute;
+  top: -22px;
+  left: 50%;
+  transform: translateX(-50%);
+
+  font-size: 20px;
+  font-weight: 700;
+  color: var(--color-text);
+
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 12px;
+  padding: 0 15px;
+}
+
+.clue {
+  text-align: center;
+  color: var(--color-primary);
+  flex: 1;
+  font-weight: 700;
+
+  /* 🔒 سطر واحد فقط */
+  white-space: nowrap;
+
+  /* 🔒 إخفاء أي زيادة */
+  overflow: hidden;
+
+  /* 🔒 قص الباقي */
+  text-overflow: clip;
+
+  /* 🔒 تصغير الحجم ديناميك حسب المساحة */
+  font-size: clamp(14px, 2vw, 20px);
+  line-height: 1.3;
+}
+
+
+.arrow {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.arrow img {
+  width: 35px;
+  height: 35px;
+  object-fit: contain;
+}
+
+/* للأجهزة الكبيرة */
+@media (max-width: 1200px) {
+  .main {
+    top: -20px;
+    font-size: 18px;
+  }
+  .clue {
+    font-size: 18px;
+    font-weight: 600;
+  }
+}
+
+/* للتابلت */
+@media (max-width: 950px) {
+  .main {
+    min-width: unset;   /* 🟢 مهم */
+    width: 180px;
+    height: 42px;
+
+    font-size: 18px;
+    font-weight: 600;
+    gap: 15px;
+  }
+  .clue {
+    font-size: 17px;
+  }
+}
+
+/* للموبايل */
+@media (max-width: 550px), (max-height: 700px) {
+  .main {
+    min-width: unset;   /* 🟢 لازم هنا */
+    width: 150px;
+    height: 36px;
+
+    font-size: 16px;
+    gap: 8px;
+  }
+  .clue {
+    font-size: 15px;
+    line-height: 1.2;
+  }
+  .arrow img {
+    width: 28px;
+    height: 28px;
+  }
+}
+
+/* شاشات صغيرة جدًا (موبايل أفقي مثلاً أو iPhone SE) */
+@media (max-width: 400px), (max-height: 500px) {
+  .main {
+    min-width: unset;   /* 🟢 عشان يصغر فعلاً */
+    width: 130px;
+    height: 32px;
+
+    font-size: 14px;
+  }
+  .clue {
+    font-size: 13px;
+    line-height: 1.1;
+  }
+  .arrow img {
+    width: 24px;
+    height: 24px;
+  }
+}
+
+/* حالة خاصة: شاشات قصيرة جدًا (زي موبايل أفقي كبير) */
+@media (max-width: 1150px) and (max-height: 520px) {
+  .main {
+    bottom: -19px;
+    top: unset; /* نشيله من فوق */
+    left: 50%;
+    transform: translateX(-50%);
+  }
+}

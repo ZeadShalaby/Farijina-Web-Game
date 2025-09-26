@@ -1,0 +1,525 @@
+/* ✅ Rules Section */
+.rulesContainer {
+  width: 100%;
+  height: 100%;
+  max-width: 750px;
+  max-height: 290px;
+  border-radius: 20px;
+  padding: 20px;
+  background: url('/images/pattern 3.png') center/cover no-repeat;
+
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  /* QR ناحية والليست في الناحية التانية */
+  gap: 20px;
+
+  position: relative;
+}
+
+/* ✅ QR Wrapper */
+.qrWrapper {
+  position: relative;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  /* الليبل تحت الدايرة بالظبط */
+  order: 2;
+  /* يحط الدايرة والليبل في الناحية التانية */
+}
+
+.qrCircle {
+  width: 170px;
+  height: 170px;
+  border-radius: 50%;
+  background: white;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  overflow: hidden;
+  position: relative;
+  z-index: 1;
+  flex-shrink: 0;
+}
+
+.qrCircle img {
+  width: 130px;
+  height: 130px;
+  object-fit: contain;
+}
+
+.qrLabel {
+  position: absolute;
+  top: 100%;
+  /* يخليه تحت الدايرة مباشرة */
+  left: 50%;
+  transform: translateX(-50%);
+  margin-top: -15px;
+  /* مسافة صغيرة عشان يبان */
+  background-color: #e8501d;
+  color: #fff;
+  font-weight: bold;
+  font-size: 18px;
+  padding: 6px 18px;
+  border-radius: 20px;
+  white-space: nowrap;
+  z-index: 2;
+}
+
+/* ✅ Rules List */
+.rulesList {
+  display: flex;
+  flex-direction: column;
+  gap: 12px;
+  color: #333;
+  font-size: 18px;
+  font-weight: 500;
+  flex: 1;
+  /* تاخد المساحة الباقية */
+}
+
+.rulesList p {
+  display: flex;
+  align-items: center;
+  position: relative;
+  /* عشان الرقم يترتب فوق المستطيل */
+  margin: 0;
+  direction: rtl;
+  /* النص يمشي من اليمين للشمال */
+}
+
+.rulesList span {
+  position: absolute;
+  right: -14px;
+  /* يخلي الدايرة تدخل نصها جوا المستطيل من الناحية اليمين */
+  top: 50%;
+  transform: translateY(-50%);
+
+  width: 40px;
+  height: 40px;
+
+  display: flex;
+  align-items: center;
+  justify-content: center;
+
+  font-weight: bold;
+  font-size: 20px;
+  color: #fff;
+
+  border-radius: 50%;
+  background-color: var(--color-back-orange);
+  border: 2px solid var(--color-primary);
+  z-index: 2;
+}
+
+.rulesList label {
+  flex: 1;
+  padding: 12px 30px 12px 16px;
+  /* padding-right أكبر عشان يسيب مساحة للرقم */
+  background-color: #fff;
+  border-radius: 20px;
+  box-shadow: 0 2px 6px rgba(0, 0, 0, 0.1);
+
+  font-weight: bold;
+  font-size: 16px;
+  color: var(--color-text4);
+  line-height: 1.5;
+  position: relative;
+  z-index: 1;
+  text-align: right;
+  /* يخلي النص نفسه يبدأ من اليمين */
+}
+
+
+/* ✅ Main Question Section */
+.main {
+  flex-grow: 1;
+}
+
+.questionContainer {
+  width: 100%;
+  min-width: 0;
+  height: calc(95% - 27px);
+  min-height: 0;
+  padding: 30px 5vw 60px;
+  border-radius: 40px;
+  border: 4px solid #4ea9b4;
+  background: white;
+
+  position: relative;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: flex-start;
+  gap: 20.5px;
+}
+
+.questTextOnly {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  margin: auto;
+  height: 100%;
+}
+
+.main.vertebraeMode .questionContainer {
+  justify-content: center;
+}
+
+.questionContainer:after {
+  content: "";
+  width: 100%;
+  height: 100%;
+  /* background: linear-gradient(180deg, #4ea9b4, var(--color-pri)); */
+  filter: blur(25px);
+
+  z-index: -1;
+  position: absolute;
+  top: 0;
+  left: 0;
+}
+
+.questText {
+  font-size: 24px;
+  font-weight: bold;
+  line-height: 46.98px;
+  text-align: center;
+  color: var(--color-text);
+  word-break: break-word;
+  overflow-wrap: break-word;
+}
+
+/* ✅ Points & Answer */
+.questPoints {
+  padding: 5px 10px;
+  height: fit-content !important;
+  min-height: fit-content !important;
+  z-index: 3;
+  position: absolute !important;
+  top: -25px;
+  right: 26px;
+  font-size: clamp(13px, 1.8vw, 1.8vw) !important;
+}
+
+.questAnswer {
+  width: 186px;
+  height: 54px;
+  border-radius: 46.88px;
+  background-color: var(--color-sec);
+  cursor: pointer;
+
+  position: absolute;
+  bottom: -27px;
+  right: 31px;
+
+  font-size: 24px;
+  font-weight: 600;
+  line-height: 44.98px;
+  color: var(--color-text);
+  text-align: center;
+
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+/* ✅ Actions */
+.questActions {
+  width: 100%;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  position: absolute;
+  bottom: -27px;
+  left: 0;
+  padding: 0 30px;
+}
+
+.questPointsLeft {
+  composes: questPoints;
+  left: 26px;
+  right: auto;
+}
+
+/* ================== Tablet / iPad ================== */
+/* الشاشات المتوسطة بين 551px و 950px (مثل iPad Pro) */
+@media (min-width: 551px) and (max-width: 950px) {
+
+  .rulesContainer,
+  .questionContainer {
+    margin-top: 40px;
+    /* ينزل شوية */
+    transform: scale(0.9);
+    /* يصغر الكونتنت شوية */
+    transform-origin: top center;
+  }
+
+  .questText {
+    font-size: 20px;
+    line-height: 32px;
+  }
+
+  .questAnswer {
+    width: 100px;
+    height: 50px;
+  }
+
+  .rulesList {
+    font-size: 16px;
+  }
+
+  .qrCircle {
+    width: 120px;
+    height: 120px;
+  }
+
+  .qrCircle img {
+    width: 100px;
+    height: 100px;
+  }
+
+  .qrLabel {
+    font-size: 14px;
+    padding: 4px 12px;
+  }
+
+  .questPoints,
+  .questPointsLeft {
+    top: -20px;
+    font-size: 18px;
+  }
+}
+
+/* ================== Small / Medium Screens ================== */
+/* الشاشات أقل من 950px (Tablets أصغر) */
+@media (max-width: 950px) {
+  .questionContainer {
+    padding: 30px 4vw 50px;
+    gap: 25px;
+    transform: scale(0.85);
+    /* يصغر الكونتنت */
+    transform-origin: top center;
+  }
+
+  .questText {
+    font-size: 18px;
+    line-height: 28px;
+  }
+
+  .questAnswer {
+    width: 90px;
+    height: 50px;
+  }
+
+  .rulesList {
+    font-size: 15px;
+    gap: 8px;
+  }
+
+  .qrCircle {
+    width: 100px;
+    height: 100px;
+  }
+
+  .qrCircle img {
+    width: 80px;
+    height: 80px;
+  }
+
+  .qrLabel {
+    font-size: 14px;
+    padding: 4px 12px;
+  }
+
+  .questPoints,
+  .questPointsLeft {
+    top: -18px;
+    font-size: 16px;
+  }
+}
+
+/* ================== Phone / Very Small Screens ================== */
+/* الشاشات أقل من 550px */
+@media (max-width: 550px) {
+
+  .rulesContainer,
+  .questionContainer {
+    transform: scale(0.85);
+    /* يصغر الكونتنت */
+    transform-origin: top center;
+    margin-top: 10px;
+    /* ينزل الكونتينر شوية */
+  }
+
+  .rulesContainer {
+    width: 100%;
+    height: 100%;
+    max-width: 450px;
+    max-height: 140px;
+  }
+
+  .questionContainer {
+    padding: 10px 4vw 25px;
+    gap: 5px;
+  }
+
+  .questText {
+    font-size: 14px;
+    line-height: 50px;
+  }
+
+  .questAnswer {
+    width: 80px;
+    height: 20px;
+    bottom: -20px;
+    right: 20px;
+  }
+
+  .main.vertebraeMode .questAnswer {
+    width: 100px;
+    font-size: 12px;
+    font-weight: 700;
+  }
+
+  .rulesList {
+    font-size: 6px;
+    /* تصغير نصوص القوائم */
+  }
+
+  .rulesList label {
+    font-size: 6.5px;
+    /* تصغير النص داخل المستطيل */
+    padding: 3px 8px 3px 4px;
+    /* padding-right أكبر عشان يسيب مساحة للرقم */
+
+  }
+
+  .rulesList span {
+    width: 25px;
+    height: 25px;
+    font-size: 8px;
+  }
+
+  .qrCircle {
+    width: 80px;
+    height: 80px;
+  }
+
+  .qrCircle img {
+    width: 60px;
+    height: 60px;
+  }
+
+  .qrLabel {
+    font-size: 10px;
+    /* تصغير النص تحت الدايرة */
+    padding: 2px 8px;
+  }
+
+  .questPoints,
+  .questPointsLeft {
+    top: -15px;
+    font-size: 12px;
+  }
+}
+
+/* ================== Short Screens ================== */
+/* ارتفاع أقل من 700px */
+@media (max-height: 700px) {
+  .questionContainer {
+    padding: 25px 4vw 20px;
+    gap: 10px;
+    transform: scale(0.9);
+    transform-origin: top center;
+  }
+
+  .questText {
+    font-size: 18px;
+    line-height: 30px;
+  }
+
+  .questAnswer {
+    width: 100px;
+    height: 40px;
+  }
+
+  .questPoints,
+  .questPointsLeft {
+    top: -18px;
+    font-size: 16px;
+  }
+
+
+}
+
+/* ارتفاع أقل من 700px و أقل من 550px عرض */
+@media (max-height: 700px) and (max-width: 550px) {
+  .questionContainer {
+    padding: 10px 4vw 20px;
+  }
+
+  .questText {
+    font-size: 14px;
+    line-height: 22px;
+  }
+
+  .questPoints,
+  .questPointsLeft {
+    top: -15px;
+    font-size: 14px;
+  }
+}
+
+/* ارتفاع أقل من 520px */
+@media (max-height: 520px) {
+  .questionContainer {
+    padding: 15px 4vw 20px;
+    gap: 10px;
+  }
+
+
+  .questText {
+    font-size: clamp(14px, 2.5vw, 20px);
+    line-height: 64px;
+    font-weight: bold;
+  }
+}
+
+/* عرض أقل من 1150px و ارتفاع أقل من 520px */
+@media (max-width: 1150px) and (max-height: 520px) {
+
+  .questionContainer {
+    padding: 15px 3vw 20px 4vw;
+  }
+
+  .questAnswer {
+    height: 30px;
+    font-size: 14px;
+  }
+
+  .questPoints {
+    height: 28px !important;
+    min-height: 28px !important;
+    top: -10px;
+  }
+}
+
+/* ================== Laptop & Desktop ================== */
+@media (min-width: 951px) {
+  .main {
+    width: 82vw;
+    height: 82vh;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    /* المحتوى في النص طولياً */
+    align-items: center;
+    /* المحتوى في النص أفقياً */
+    overflow: hidden;
+    /* يمنع أي scroll */
+  }
+
+  .questText {
+    line-height: 50px;
+  }
+}

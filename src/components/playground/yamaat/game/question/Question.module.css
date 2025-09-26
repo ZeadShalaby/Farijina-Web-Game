@@ -1,0 +1,431 @@
+.main {
+  flex-grow: 1;
+}
+
+.questionContainer {
+  width: 100%;
+  height: calc(100% - 27px);
+  padding: 20px 4vw 40px;
+  border-radius: 30px;
+  border: 4px solid #4ea9b4;
+  background: white;
+  position: relative;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: flex-start;
+  gap: 1px;
+  /* 👈 صغرت المسافة بين النص والميديا */
+}
+
+.questionContainer .questMedia {
+  margin-top: 10px;
+}
+
+.questText {
+  font-size: clamp(22px, 8vw, 22px);
+  font-weight: bold;
+  text-align: center;
+  max-width: 90%;
+  margin: 10px auto 0;
+  word-break: break-word;
+  overflow-wrap: break-word;
+  line-height: 2;
+  /* 👈 ضفتها بدل القيم الكبيرة */
+}
+
+/* الميديا أكبر مساحة ممكنة */
+.questMedia {
+  flex-grow: 1;
+  width: 60%;
+  /* العرض ياخد كل الكونتينر */
+  height: auto;
+  aspect-ratio: 16 / 9;
+  border-radius: 20px;
+  overflow: hidden;
+  position: relative;
+  margin: 0;
+  /* شيل الـ margin auto */
+  max-width: unset;
+  /* شيل الحد الأقصى للعرض */
+}
+
+.audioMedia {
+  max-width: 400px;
+  max-height: 380px;
+  margin: auto 0;
+}
+
+/* لو فيديو */
+.videoMedia {
+  max-width: 800px;
+  max-height: 400px;
+  margin: auto 0;
+}
+
+
+.questMedia>* {
+  width: 100%;
+  height: 100%;
+  object-fit: contain;
+  /* أو cover لو عايز يملأ المساحة */
+  position: absolute;
+  top: 0;
+  left: 0;
+}
+
+.questMedia img {
+  cursor: pointer;
+}
+
+
+.questPoints {
+  padding: 5px 10px;
+  height: fit-content !important;
+  min-height: fit-content !important;
+
+  z-index: 3;
+  position: absolute !important;
+  top: -25px;
+  right: 26px;
+
+  font-size: clamp(13px, 1.8vw, 1.8vw) !important;
+}
+
+.questAnswer {
+  width: 186px;
+  height: 54px;
+  border-radius: 46.88px;
+  background-color: var(--color-sec);
+  cursor: pointer;
+
+  position: absolute;
+  bottom: -27px;
+  left: 31px;
+
+  font-size: 24px;
+  font-weight: 600;
+  line-height: 44.98px;
+  color: var(--color-text);
+  text-align: center;
+
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+
+
+
+@media (max-width: 950px) {
+  .questionContainer {
+    padding: 25px 4vw 50px;
+    border-radius: 30px;
+
+    gap: 30px;
+  }
+
+  .questText {
+    font-size: 16px;
+    /* كان 18px */
+    line-height: 26px;
+    /* كان 30px */
+    font-weight: bold;
+    word-break: break-word;
+    overflow-wrap: break-word;
+  }
+
+  .questMedia {
+    /* max-width: 300px;
+      max-height: 280px; */
+    border-radius: 20px;
+    width: 100%;
+
+  }
+
+  .questPoints {
+    padding: 0 10px;
+
+    top: -20px;
+  }
+
+  .questAnswer {
+    width: 80px;
+    height: 50px;
+
+    bottom: -25px;
+
+    font-size: 20px;
+  }
+
+  .main.vertebraeMode .questAnswer {
+    width: 120px;
+  }
+}
+
+@media (max-width: 550px) {
+  .questionContainer {
+    padding: 10px 4vw 25px;
+    border-radius: 20px;
+    gap: 5px;
+  }
+
+  .questText {
+    font-size: clamp(14px, 2.5vw, 18px);
+    line-height: 25px;
+    margin: 20px;
+    font-weight: bold;
+    word-break: break-word;
+    overflow-wrap: break-word;
+  }
+
+  .questMedia {
+    margin: auto 0;
+    border-radius: 20px;
+    width: 100%;
+    top: -30PX;
+    /* flex-grow: unset; */
+  }
+
+  .questPoints {
+    height: 30px !important;
+    min-height: 30px !important;
+
+    top: -15px;
+  }
+
+  .questAnswer {
+    width: 80px;
+    height: 40px;
+
+    bottom: -20px;
+    left: 20px;
+
+    font-size: 17px;
+  }
+
+  .main.vertebraeMode .questAnswer {
+    width: 100px;
+
+    font-size: 12px;
+    font-weight: 700;
+  }
+}
+
+@media (max-height: 700px) {
+  .questionContainer {
+    padding: 30px 4vw 25px;
+    border-radius: 20px;
+    gap: 10px;
+  }
+
+  .questText {
+    font-size: 16px;
+    /* كان 20px */
+    line-height: 24px;
+    /* كان 35px */
+    font-weight: bold;
+    word-break: break-word;
+    overflow-wrap: break-word;
+  }
+
+  .questMedia {
+    margin: auto 0;
+    border-radius: 20px;
+    width: 100%;
+
+  }
+
+  .questPoints {
+    height: 40px !important;
+    min-height: 40px !important;
+
+    top: -20px;
+  }
+
+  .questAnswer {
+    width: 120px;
+    height: 40px;
+
+    bottom: -20px;
+    left: 20px;
+
+    font-size: 17px;
+  }
+
+  .main.vertebraeMode .questAnswer {
+    font-size: 14px;
+    font-weight: 700;
+  }
+}
+
+@media (max-height: 700px) and (max-width: 550px) {
+  .questionContainer {
+    padding: 10px 4vw 25px;
+  }
+
+  .questText {
+    font-size: 14px;
+    /* كان 16px */
+    line-height: 20px;
+    /* كان 26px */
+    font-weight: bold;
+    word-break: break-word;
+    overflow-wrap: break-word;
+  }
+
+  .questPoints {
+    height: 30px !important;
+    min-height: 30px !important;
+
+    top: -15px;
+  }
+
+  .questMedia {
+
+    width: 100%;
+  }
+}
+
+@media (max-height: 700px) and (min-width: 950px) {
+
+  /* الميديا العادية */
+  .questMedia {
+    max-width: 800px;
+    max-height: 380px;
+    margin: auto 0;
+  }
+
+  .audioMedia {
+    max-width: 400px;
+    max-height: 380px;
+    margin: auto 0;
+  }
+
+  /* لو فيديو */
+  .videoMedia {
+    max-width: 800px;
+    max-height: 390px;
+    margin: auto 0;
+  }
+
+  .questText {
+    font-size: 22px;
+    line-height: 30px;
+    font-weight: bold;
+    word-break: break-word;
+    overflow-wrap: break-word;
+  }
+}
+
+
+@media (max-height: 520px) {
+  .questionContainer {
+    padding-right: 20px;
+    padding-left: 20px;
+    padding-top: 30px;
+    /* flex-direction: row; */
+    gap: 10px;
+  }
+
+  .questText {
+    font-size: 14px;
+    /* كان 16px */
+    line-height: 20px;
+    /* كان 26px */
+    font-weight: bold;
+    word-break: break-word;
+    overflow-wrap: break-word;
+  }
+
+  .main.vertebraeMode .questText {
+    text-align: center;
+  }
+
+  .questMedia {
+    width: 100%;
+    height: 100%;
+    margin: 0 auto;
+    border-radius: 15px;
+  }
+}
+
+@media (max-width: 1150px) and (max-height: 520px) {
+  .questionContainer {
+    padding: 18px 2.5vw 20px 5vw;
+  }
+
+  .questAnswer {
+    height: 30px;
+
+    font-size: 14px;
+    font-weight: 500;
+    line-height: 26.24px;
+
+    bottom: -15px;
+  }
+
+  .questPoints {
+    height: 28px !important;
+    min-height: 28px !important;
+
+    top: -10px;
+  }
+}
+
+.questActions {
+  width: 100%;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  /* يخلي زرار يمين وزرار شمال والكونتر في النص */
+  position: absolute;
+  bottom: -27px;
+  left: 0;
+  padding: 0 30px;
+}
+
+.questPointsLeft {
+  composes: questPoints;
+  /* لو حابب تستخدم نفس الاستايل */
+  left: 26px;
+  /* بدل right */
+  right: auto;
+
+}
+
+@media (max-width: 950px) {
+  .questPointsLeft {
+    left: 20px;
+    right: auto;
+    top: -20px;
+  }
+}
+
+@media (max-width: 550px) {
+  .questPointsLeft {
+    left: 15px;
+    top: -15px;
+  }
+}
+
+
+@media (min-width: 1024px) and (max-width: 1366px) {
+    .questText {
+    font-size: 18px;
+    /* كان 16px */
+    line-height: 45px;
+    /* كان 26px */
+    font-weight: bold;
+    word-break: break-word;
+    overflow-wrap: break-word;
+  }
+  .questMedia {
+    width: 100%;
+    max-width: 100%;
+    height: auto;
+    top:-25px
+  }
+}
+
+/* وهكذا لكل الـ media queries اللي عندك للـ questPoints */

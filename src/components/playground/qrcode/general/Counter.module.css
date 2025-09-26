@@ -1,0 +1,136 @@
+.wrapper {
+  width: 480px;
+  height: 520px;
+  position: relative;
+  margin: auto;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-direction: column;
+}
+
+.circle {
+  position: relative;
+  transform: rotate(-90deg); /* العد يبدأ من فوق */
+}
+
+.number {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  font-size: 72px;
+  font-weight: bold;
+  color: var(--color-back-orange);
+}
+
+.actions {
+  position: absolute;
+  top: 70px; /* الأيقونات فوق الدايرة */
+  display: flex;
+  gap: 25px;
+  justify-content: center;
+  width: 100%;
+}
+
+.btn {
+  cursor: pointer;
+  transition: transform 0.15s ease;
+  background: #f5f5f5;
+  border-radius: 50%;
+  padding: 8px;
+  box-shadow: 0px 3px 6px rgba(0,0,0,0.2);
+}
+
+.btn:hover {
+  transform: scale(1.1);
+  background: #eee;
+}
+
+/* 📱 موبايل صغير */
+@media (max-width: 480px) {
+  .wrapper {
+    width: 280px;
+    height: 340px;
+  }
+
+  .circle {
+    margin-top: 80px;
+  }
+
+  .number {
+    margin-top: 40px;
+    font-size: 58px;
+  }
+
+  .actions {
+    top: 30px;
+    gap: 15px;
+  }
+
+  .btn {
+    padding: 6px;
+  }
+}
+
+/* 📱 موبايل متوسط */
+@media (min-width: 481px) and (max-width: 767px) {
+  .wrapper {
+    width: 320px;
+    height: 360px;
+  }
+
+  .circle {
+    margin-top: 55px;
+  }
+
+  .number {
+    font-size: 54px;
+  }
+
+  .actions {
+    top: 55px;
+    gap: 18px;
+  }
+}
+
+/* 📲 تابلت صغير */
+@media (min-width: 768px) and (max-width: 1023px) {
+  .wrapper {
+    width: 380px;
+    height: 420px;
+  }
+
+  .circle {
+    margin-top: 60px;
+  }
+
+  .number {
+    font-size: 64px;
+  }
+
+  .actions {
+    top: 60px;
+  }
+}
+/* 💻 لابتوب كبير */
+@media (min-width: 1024px) {
+  .circle {
+    position: absolute; /* بدل relative */
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%) rotate(-90deg); /* يبقى في النص ويدور العد */
+    margin-top: 0; /* شيلنا أي مسافة فوق */
+  }
+
+  .number {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+  }
+
+  .actions {
+    top: 55px; /* الأيقونات فوق الدايرة */
+  }
+}
