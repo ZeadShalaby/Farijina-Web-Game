@@ -2,8 +2,28 @@ import { useState, useEffect, useRef } from "react";
 import classes from "./Counter.module.css";
 import Image from "next/image";
 
-function Counter() {
-  const INITIAL = 100;
+
+function Counter({ currentQuestion }) {
+  
+  const category = currentQuestion?.category;
+console.log(category);
+
+  let INITIAL = 100; // default
+  if (category) {
+    switch (currentQuestion.points) {
+      case 200:
+        INITIAL = category.timer_200 ?? 40;
+        break;
+      case 400:
+        INITIAL = category.timer_400 ?? 60;
+        break;
+      case 600:
+        INITIAL = category.timer_600 ?? 90;
+        break;
+      default:
+        INITIAL = 100;
+    }
+  }
   const [time, setTime] = useState(INITIAL);
   const [isRunning, setIsRunning] = useState(true);
   const timerRef = useRef(null);

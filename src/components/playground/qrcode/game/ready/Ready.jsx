@@ -31,7 +31,7 @@ function Answer() {
       <div className={classes.ansContainer}>
         {currentQuestion.link_answer_type === "text" ? null : (
           <div className={classes.ansMedia}>
-        <Counter />
+        <Counter currentQuestion={currentQuestion} />
 
           </div>
         )}
